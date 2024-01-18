@@ -15,8 +15,6 @@ import 'package:provider/provider.dart';
 
 class GranetSorraModel extends FlutterFlowModel<GranetSorraWidget> {
 
-    List<Review> reviews = [];
-
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
