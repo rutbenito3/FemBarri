@@ -9,14 +9,15 @@ import 'package:flutter/services.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+
 import 'granet_sorra_model.dart';
 export 'granet_sorra_model.dart';
 
 class GranetSorraWidget extends StatefulWidget {
-  const GranetSorraWidget({Key? key}) : super(key: key);
+  const GranetSorraWidget({super.key});
 
   @override
-  _GranetSorraWidgetState createState() => _GranetSorraWidgetState();
+  State<GranetSorraWidget> createState() => _GranetSorraWidgetState();
 }
 
 class _GranetSorraWidgetState extends State<GranetSorraWidget>
@@ -67,12 +68,12 @@ class _GranetSorraWidgetState extends State<GranetSorraWidget>
           automaticallyImplyLeading: false,
           leading: FlutterFlowIconButton(
             borderColor: Colors.transparent,
-            borderRadius: 30.0,
-            buttonSize: 48.0,
+            borderRadius: 30,
+            buttonSize: 48,
             icon: Icon(
               Icons.arrow_back_rounded,
               color: Colors.white,
-              size: 30.0,
+              size: 30,
             ),
             onPressed: () async {
               context.safePop();
@@ -83,12 +84,12 @@ class _GranetSorraWidgetState extends State<GranetSorraWidget>
             style: FlutterFlowTheme.of(context).bodyMedium.override(
                   fontFamily: 'Poppins',
                   color: Colors.white,
-                  fontSize: 20.0,
+                  fontSize: 20,
                 ),
           ),
           actions: [],
           centerTitle: false,
-          elevation: 0.0,
+          elevation: 0,
         ),
         body: SafeArea(
           top: true,
@@ -99,14 +100,14 @@ class _GranetSorraWidgetState extends State<GranetSorraWidget>
                 child: Column(
                   children: [
                     Align(
-                      alignment: Alignment(0.0, 0),
+                      alignment: Alignment(0, 0),
                       child: TabBar(
                         labelColor: Color(0xFF223263),
                         unselectedLabelColor: Color(0xFF223263),
                         labelStyle: FlutterFlowTheme.of(context).titleSmall,
                         unselectedLabelStyle: TextStyle(),
                         indicatorColor: FlutterFlowTheme.of(context).secondary,
-                        indicatorWeight: 4.0,
+                        indicatorWeight: 4,
                         tabs: [
                           Tab(
                             text: 'Ressenyes',
@@ -126,15 +127,15 @@ class _GranetSorraWidgetState extends State<GranetSorraWidget>
                         controller: _model.tabBarController,
                         children: [
                           Container(
-                            width: 100.0,
-                            height: 100.0,
+                            width: 100,
+                            height: 100,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .primaryBackground,
                             ),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 8.0, 0.0, 0.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
                               child: ListView(
                                 padding: EdgeInsets.zero,
                                 primary: false,
@@ -143,7 +144,7 @@ class _GranetSorraWidgetState extends State<GranetSorraWidget>
                                 children: [
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        16.0, 0.0, 16.0, 12.0),
+                                        16, 0, 16, 12),
                                     child: Container(
                                       width: double.infinity,
                                       decoration: BoxDecoration(
@@ -151,13 +152,12 @@ class _GranetSorraWidgetState extends State<GranetSorraWidget>
                                             .secondaryBackground,
                                         boxShadow: [
                                           BoxShadow(
-                                            blurRadius: 4.0,
+                                            blurRadius: 4,
                                             color: Color(0x32000000),
-                                            offset: Offset(0.0, 2.0),
+                                            offset: Offset(0, 2),
                                           )
                                         ],
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
+                                        borderRadius: BorderRadius.circular(8),
                                       ),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
@@ -165,13 +165,13 @@ class _GranetSorraWidgetState extends State<GranetSorraWidget>
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    16.0, 12.0, 16.0, 8.0),
+                                                    16, 12, 16, 8),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
                                                 Container(
-                                                  width: 70.0,
-                                                  height: 70.0,
+                                                  width: 70,
+                                                  height: 70,
                                                   clipBehavior: Clip.antiAlias,
                                                   decoration: BoxDecoration(
                                                     shape: BoxShape.circle,
@@ -184,7 +184,7 @@ class _GranetSorraWidgetState extends State<GranetSorraWidget>
                                                 Align(
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          -1.0, 0.0),
+                                                          -1, 0),
                                                   child: Column(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
@@ -192,15 +192,12 @@ class _GranetSorraWidgetState extends State<GranetSorraWidget>
                                                       Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                -1.0, 0.0),
+                                                                -1, 0),
                                                         child: Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      20.0,
-                                                                      0.0),
+                                                                  .fromSTEB(0,
+                                                                      0, 20, 0),
                                                           child: Text(
                                                             'Pol Garcia',
                                                             style: FlutterFlowTheme
@@ -225,15 +222,15 @@ class _GranetSorraWidgetState extends State<GranetSorraWidget>
                                                           Align(
                                                             alignment:
                                                                 AlignmentDirectional(
-                                                                    0.0, 0.0),
+                                                                    0, 0),
                                                             child: Padding(
                                                               padding:
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          20.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                          20,
+                                                                          0,
+                                                                          0,
+                                                                          0),
                                                               child: RatingBar
                                                                   .builder(
                                                                 onRatingUpdate: (newValue) =>
@@ -254,13 +251,13 @@ class _GranetSorraWidgetState extends State<GranetSorraWidget>
                                                                     .horizontal,
                                                                 initialRating:
                                                                     _model.ratingBarValue ??=
-                                                                        3.0,
+                                                                        3,
                                                                 unratedColor:
                                                                     FlutterFlowTheme.of(
                                                                             context)
                                                                         .accent3,
                                                                 itemCount: 5,
-                                                                itemSize: 20.0,
+                                                                itemSize: 20,
                                                                 glowColor:
                                                                     FlutterFlowTheme.of(
                                                                             context)
@@ -291,7 +288,7 @@ class _GranetSorraWidgetState extends State<GranetSorraWidget>
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    16.0, 0.0, 16.0, 0.0),
+                                                    16, 0, 16, 0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -302,8 +299,8 @@ class _GranetSorraWidgetState extends State<GranetSorraWidget>
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 10.0,
-                                                                12.0, 0.0),
+                                                            .fromSTEB(
+                                                                0, 10, 12, 0),
                                                     child: Text(
                                                       'Molt amable',
                                                       style:
@@ -319,7 +316,7 @@ class _GranetSorraWidgetState extends State<GranetSorraWidget>
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    16.0, 4.0, 16.0, 12.0),
+                                                    16, 4, 16, 12),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -336,7 +333,7 @@ class _GranetSorraWidgetState extends State<GranetSorraWidget>
                                                         fontFamily:
                                                             'Lexend Deca',
                                                         color: Colors.black,
-                                                        fontSize: 12.0,
+                                                        fontSize: 12,
                                                       ),
                                                 ),
                                               ],
@@ -351,8 +348,8 @@ class _GranetSorraWidgetState extends State<GranetSorraWidget>
                             ),
                           ),
                           Container(
-                            width: 100.0,
-                            height: 100.0,
+                            width: 100,
+                            height: 100,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .primaryBackground,
@@ -361,10 +358,10 @@ class _GranetSorraWidgetState extends State<GranetSorraWidget>
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Align(
-                                  alignment: AlignmentDirectional(-1.0, 0.0),
+                                  alignment: AlignmentDirectional(-1, 0),
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        16.0, 16.0, 6.0, 6.0),
+                                        16, 16, 6, 6),
                                     child: Text(
                                       'Col·lecció',
                                       style: FlutterFlowTheme.of(context)
@@ -374,7 +371,7 @@ class _GranetSorraWidgetState extends State<GranetSorraWidget>
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      16.0, 0.0, 16.0, 0.0),
+                                      16, 0, 16, 0),
                                   child: FutureBuilder<List<ProductesRow>>(
                                     future: ProductesTable().queryRows(
                                       queryFn: (q) => q.eq(
@@ -387,8 +384,8 @@ class _GranetSorraWidgetState extends State<GranetSorraWidget>
                                       if (!snapshot.hasData) {
                                         return Center(
                                           child: SizedBox(
-                                            width: 50.0,
-                                            height: 50.0,
+                                            width: 50,
+                                            height: 50,
                                             child: CircularProgressIndicator(
                                               valueColor:
                                                   AlwaysStoppedAnimation<Color>(
@@ -417,26 +414,25 @@ class _GranetSorraWidgetState extends State<GranetSorraWidget>
                                                 Clip.antiAliasWithSaveLayer,
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
-                                            elevation: 4.0,
+                                            elevation: 4,
                                             shape: RoundedRectangleBorder(
                                               borderRadius:
-                                                  BorderRadius.circular(8.0),
+                                                  BorderRadius.circular(8),
                                             ),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 0.0, 0.0, 16.0),
+                                                  .fromSTEB(0, 0, 0, 16),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
                                                   Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0.0, 0.0),
+                                                            0, 0),
                                                     child: ClipRRect(
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              6.0),
+                                                              6),
                                                       child: Image.network(
                                                         valueOrDefault<String>(
                                                           listViewProductesRow
@@ -444,32 +440,102 @@ class _GranetSorraWidgetState extends State<GranetSorraWidget>
                                                           'https://www.tea-tron.com/antorodriguez/blog/wp-content/uploads/2016/04/image-not-found-4a963b95bf081c3ea02923dceaeb3f8085e1a654fc54840aac61a57a60903fef.png',
                                                         ),
                                                         width: double.infinity,
-                                                        height: 200.0,
+                                                        height: 200,
                                                         fit: BoxFit.contain,
                                                       ),
                                                     ),
                                                   ),
-                                                  Align(
-                                                    alignment:
-                                                        AlignmentDirectional(
-                                                            -1.0, 0.0),
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  16.0,
-                                                                  8.0,
-                                                                  0.0,
-                                                                  8.0),
-                                                      child: Text(
-                                                        listViewProductesRow
-                                                            .nomProducte,
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
+                                                  Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      Align(
+                                                        alignment:
+                                                            AlignmentDirectional(
+                                                                -1, 0),
+                                                        child: Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(16,
+                                                                      8, 0, 8),
+                                                          child: Text(
+                                                            listViewProductesRow
+                                                                .nomProducte,
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
                                                                 .headlineSmall,
+                                                          ),
+                                                        ),
                                                       ),
-                                                    ),
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(60, 0,
+                                                                    0, 0),
+                                                        child: FFButtonWidget(
+                                                          onPressed: () async {
+                                                            await ProductesTable()
+                                                                .delete(
+                                                              matchingRows:
+                                                                  (rows) => rows
+                                                                      .eq(
+                                                                        'FKid_Us',
+                                                                        currentUserUid,
+                                                                      )
+                                                                      .eq(
+                                                                        'nomProducte',
+                                                                        listViewProductesRow
+                                                                            .nomProducte,
+                                                                      ),
+                                                            );
+                                                          },
+                                                          text: '',
+                                                          icon: Icon(
+                                                            Icons.delete,
+                                                            size: 35,
+                                                          ),
+                                                          options:
+                                                              FFButtonOptions(
+                                                            width: 54,
+                                                            height: 50,
+                                                            padding:
+                                                                EdgeInsets.all(
+                                                                    0),
+                                                            iconPadding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        8,
+                                                                        0,
+                                                                        0,
+                                                                        0),
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primary,
+                                                            textStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleSmall
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      color: Colors
+                                                                          .white,
+                                                                    ),
+                                                            elevation: 3,
+                                                            borderSide:
+                                                                BorderSide(
+                                                              color: Colors
+                                                                  .transparent,
+                                                              width: 1,
+                                                            ),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        8),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ],
                                                   ),
                                                 ],
                                               ),
