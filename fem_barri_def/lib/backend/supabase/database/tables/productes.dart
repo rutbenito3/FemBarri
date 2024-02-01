@@ -15,6 +15,8 @@ class ProductesRow extends SupabaseDataRow {
   SupabaseTable get table => ProductesTable();
 
   int get idProducte => getField<int>('idProducte')!;
+
+  get isVisible => null;
   set idProducte(int value) => setField<int>('idProducte', value);
 
   String get nomProducte => getField<String>('nomProducte')!;
