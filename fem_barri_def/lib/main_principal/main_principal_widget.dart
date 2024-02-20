@@ -241,7 +241,7 @@ class _MainPrincipalWidgetState extends State<MainPrincipalWidget> {
                           List<CategoriesRow> dropDownCategoriesRowList = snapshot.data!;
                           return FlutterFlowDropDown<String>(
                             controller: _model.dropDownValueController ??= FormFieldController<String>(null),
-                            options: dropDownCategoriesRowList.map((e) => e.idCategoria.toString()).toList(),
+                            options: dropDownCategoriesRowList.map((e) => e.tipus.toString()).toList(),
                             onChanged: (val) {
                               setState(() {
                                 selectedCategory = val;
@@ -269,41 +269,6 @@ class _MainPrincipalWidgetState extends State<MainPrincipalWidget> {
                         },
                       ),
                     ),
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                      child: FFButtonWidget(
-                        onPressed: () async {
-                          context.pushNamed(
-                            'Productos1Categoria',
-                            queryParameters: {
-                              'categories': serializeParam(
-                                selectedCategory,
-                                ParamType.String,
-                              ),
-                            }.withoutNulls,
-                          );
-                        },
-                        text: 'Ves-hi',
-                        options: FFButtonOptions(
-                          width: 90.0,
-                          height: 40.0,
-                          padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                          iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                          color: FlutterFlowTheme.of(context).primary,
-                          textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                            fontFamily: 'Poppins',
-                            color: Colors.white,
-                            fontSize: 14.0,
-                          ),
-                          elevation: 3.0,
-                          borderSide: BorderSide(
-                            color: Colors.transparent,
-                            width: 1.0,
-                          ),
-                          borderRadius: BorderRadius.circular(8.0),
-                        ),
-                      ),
-                    ),
                   ],
                 ),
                 Expanded(
@@ -311,7 +276,7 @@ class _MainPrincipalWidgetState extends State<MainPrincipalWidget> {
                     future: ProductesTable().queryRows(
                       queryFn: (q) {
                         if (selectedCategory != null) {
-                          q = q.filter('FK_idCat', 'eq', selectedCategory);
+                          q = q.filter('FK_nomCat', 'eq', selectedCategory);
                         }
                         return q;
                       },
