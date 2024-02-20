@@ -37,4 +37,7 @@ class ProductesRow extends SupabaseDataRow {
 
   String? get fKNomCat => getField<String>('FK_nomCat');
   set fKNomCat(String? value) => setField<String>('FK_nomCat', value);
+
+  String? get fts => getField<String>('fts');
+  set fts(String? value) => setField<String>('fts', value);
 }

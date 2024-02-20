@@ -198,6 +198,9 @@ class _MainPrincipalWidgetState extends State<MainPrincipalWidget> {
                                   validator: _model
                                       .emailAddressControllerValidator
                                       .asValidator(context),
+                                  onChanged: (_) {
+                                    setState(() {});
+                                  },
                                 ),
                               ),
                             ),
@@ -277,6 +280,10 @@ class _MainPrincipalWidgetState extends State<MainPrincipalWidget> {
                       queryFn: (q) {
                         if (selectedCategory != null) {
                           q = q.filter('FK_nomCat', 'eq', selectedCategory);
+                        }
+                        if (_model.emailAddressController.text.isNotEmpty) {
+                          // Agregar condición para buscar por nombre del producto
+                          q = q.filter('nomProducte', 'fts', _model.emailAddressController.text);
                         }
                         return q;
                       },
