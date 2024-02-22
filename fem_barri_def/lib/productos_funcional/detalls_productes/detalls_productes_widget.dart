@@ -1,3 +1,5 @@
+import 'package:fem_barri_def/xat/chat.dart';
+
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -289,6 +291,22 @@ class _DetallsProductesWidgetState extends State<DetallsProductesWidget> {
                       },
                     ),
                   ),
+                   Padding(
+                    padding: EdgeInsets.symmetric(vertical: 20.0),
+                    child: ElevatedButton.icon(
+                      onPressed: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => ChatPage(
+                              otherUserId: columnProductesRow!.fKidUs!,
+                            ),
+                          ),
+                        );
+                      },
+                      icon: Icon(Icons.message),
+                      label: Text('Enviar missatge'),
+                    ),
+                   ),
                   Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(10.0, 20.0, 10.0, 20.0),
