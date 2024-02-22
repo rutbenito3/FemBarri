@@ -23,6 +23,10 @@ class RessenyesRow extends SupabaseDataRow {
   String? get comentari => getField<String>('Comentari');
   set comentari(String? value) => setField<String>('Comentari', value);
 
-  String? get fKidUs => getField<String>('FKid_Us');
+  String? get reviewSended => getField<String>('ReviewSended');
   set fKidUs(String? value) => setField<String>('FKid_Us', value);
+  set reviewSended(String? value) => setField<String>('ReviewSended', value);
+  
+  String? get reviewGiven => getField<String>('ReviewGiven');
+  set reviewGiven(String? value) => setField<String>('ReviewGiven', value);
 }

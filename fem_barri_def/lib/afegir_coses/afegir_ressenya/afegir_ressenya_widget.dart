@@ -345,7 +345,7 @@ class _AfegirRessenyaWidgetState extends State<AfegirRessenyaWidget> {
                       'idRessenya': random_data.randomInteger(100, 500),
                       'Comentari': _model.textController.text,
                       'Valoracions': _model.ratingBarValue2?.round(),
-                      'FKid_Us': widget.usuariRessenya,
+                      'ReviewSended': widget.usuariRessenya,
                     });
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(

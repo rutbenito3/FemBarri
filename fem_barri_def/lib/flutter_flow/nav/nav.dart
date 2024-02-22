@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:fem_barri_def/reviews/reviews_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:page_transition/page_transition.dart';
@@ -179,6 +180,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             initialPage: '',
             page: GranetSorraWidget(),
           ),
+        ),
+        FFRoute(
+          name: 'Reviews',
+          path: '/reviews',
+          builder: (context, params) => ReviewsWidget(
+            nomProducte: params.getParam('nomProducte', ParamType.String),
+            usuaris: params.getParam('usuaris', ParamType.String),
+            nomUsuari: params.getParam('nomUsuari', ParamType.String),
+          ),
+
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
