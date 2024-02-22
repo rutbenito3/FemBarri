@@ -388,3 +388,5 @@ class _AfegirRessenyaWidgetState extends State<AfegirRessenyaWidget> {
     );
   }
 }
+
+

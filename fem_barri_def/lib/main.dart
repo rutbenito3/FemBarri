@@ -1,3 +1,5 @@
+import 'package:fem_barri_def/xat/chat.dart';
+import 'package:fem_barri_def/xat/usuarios_page.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
@@ -17,6 +19,7 @@ import 'flutter_flow/nav/nav.dart';
 import 'index.dart';
 
 void main() async {
+  
   WidgetsFlutterBinding.ensureInitialized();
   usePathUrlStrategy();
 
@@ -123,6 +126,7 @@ class _NavBarPageState extends State<NavBarPage> {
       'MainPrincipal': MainPrincipalWidget(),
       'AfegirProducte': AfegirProducteWidget(),
       'Perfil': PerfilWidget(),
+      'Xat': UsuariosPage(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
@@ -216,6 +220,30 @@ class _NavBarPageState extends State<NavBarPage> {
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     color: currentIndex == 2
+                        ? FlutterFlowTheme.of(context).primary
+                        : Color(0x8A000000),
+                    fontSize: 11.0,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          FloatingNavbarItem(
+            customWidget: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.person,
+                  color: currentIndex == 3
+                      ? FlutterFlowTheme.of(context).primary
+                      : Color(0x8A000000),
+                  size: 24.0,
+                ),
+                Text(
+                  'Xat',
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    color: currentIndex == 3
                         ? FlutterFlowTheme.of(context).primary
                         : Color(0x8A000000),
                     fontSize: 11.0,

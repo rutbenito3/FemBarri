@@ -1,3 +1,6 @@
+import 'package:fem_barri_def/xat/chat.dart';
+import 'package:fem_barri_def/xat/constants.dart';
+import 'package:fem_barri_def/xat/models.dart';
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -21,6 +24,7 @@ class MainPrincipalWidget extends StatefulWidget {
 
 class _MainPrincipalWidgetState extends State<MainPrincipalWidget> {
   late MainPrincipalModel _model;
+   String? otherUserId; // Variable para almacenar el ID del usuario
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -79,7 +83,8 @@ class _MainPrincipalWidgetState extends State<MainPrincipalWidget> {
               ? FocusScope.of(context).requestFocus(_model.unfocusNode)
               : FocusScope.of(context).unfocus(),
           child: Scaffold(
-            key: scaffoldKey,
+            key: scaffoldKey,         
+            appBar: MyAppBar(otherUserId: otherUserId),
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
             body: SingleChildScrollView(
               child: Column(
@@ -477,6 +482,34 @@ class _MainPrincipalWidgetState extends State<MainPrincipalWidget> {
           ),
         );
       },
+    );
+  }
+}
+
+class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
+  final String? otherUserId;
+   const MyAppBar({Key? key, this.otherUserId})
+      : super(key: key);
+
+  @override
+  Size get preferredSize => Size.fromHeight(kToolbarHeight);
+
+  @override
+  Widget build(BuildContext context) {
+    return AppBar(
+      title: Text("Mi Aplicación"),
+      actions: [
+        IconButton(
+          icon: Icon(Icons.chat),
+          onPressed: () {
+            // Abre la página de chat
+            Navigator.push(
+              context,
+              ChatPage.route(otherUserId!),
+            );
+          },
+        ),
+      ],
     );
   }
 }
