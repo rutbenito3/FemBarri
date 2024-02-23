@@ -1,6 +1,6 @@
 // Export pages
 export '/log_in_y_demas_funcional/login/login_widget.dart' show LoginWidget;
-export '/log_in_y_demas_funcional/splash/splash_widget.dart' show SplashWidget;
+// export '/log_in_y_demas_funcional/splash/splash_widget.dart' show SplashWidget;
 export '/log_in_y_demas_funcional/registre/registre_widget.dart'
     show RegistreWidget;
 export '/main_principal/main_principal_widget.dart' show MainPrincipalWidget;

@@ -80,24 +80,24 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? NavBarPage() : SplashWidget(),
+          appStateNotifier.loggedIn ? NavBarPage() : LoginWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? NavBarPage() : SplashWidget(),
+              appStateNotifier.loggedIn ? NavBarPage() : LoginWidget(),
         ),
         FFRoute(
           name: 'Login',
           path: '/login',
           builder: (context, params) => LoginWidget(),
         ),
-        FFRoute(
-          name: 'Splash',
-          path: '/splash',
-          builder: (context, params) => SplashWidget(),
-        ),
+        // FFRoute(
+        //   name: 'Splash',
+        //   path: '/splash',
+        //   builder: (context, params) => SplashWidget(),
+        // ),
         FFRoute(
           name: 'Registre',
           path: '/registre',
@@ -371,15 +371,11 @@ class FFRoute {
                 )
               : builder(context, ffParams);
           final child = appStateNotifier.loading
-              ? Center(
-                  child: SizedBox(
-                    width: 50.0,
-                    height: 50.0,
-                    child: CircularProgressIndicator(
-                      valueColor: AlwaysStoppedAnimation<Color>(
-                        FlutterFlowTheme.of(context).primary,
-                      ),
-                    ),
+              ? Container(
+                  color: FlutterFlowTheme.of(context).primary,
+                  child: Image.asset(
+                    'assets/images/SPLASH_ICONO_FEMBARRI.png',
+                    fit: BoxFit.fitWidth,
                   ),
                 )
               : page;

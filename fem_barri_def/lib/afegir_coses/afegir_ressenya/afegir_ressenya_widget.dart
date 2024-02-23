@@ -1,3 +1,4 @@
+import '/auth/supabase_auth/auth_util.dart';
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -5,23 +6,23 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'afegir_ressenya_model.dart';
 export 'afegir_ressenya_model.dart';
 
+
 class AfegirRessenyaWidget extends StatefulWidget {
   const AfegirRessenyaWidget({
-    Key? key,
+    super.key,
     required this.usuariRessenya,
-  }) : super(key: key);
+  });
 
   final String? usuariRessenya;
 
   @override
-  _AfegirRessenyaWidgetState createState() => _AfegirRessenyaWidgetState();
+  State<AfegirRessenyaWidget> createState() => _AfegirRessenyaWidgetState();
 }
 
 class _AfegirRessenyaWidgetState extends State<AfegirRessenyaWidget> {
@@ -47,15 +48,6 @@ class _AfegirRessenyaWidgetState extends State<AfegirRessenyaWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -337,48 +329,34 @@ class _AfegirRessenyaWidgetState extends State<AfegirRessenyaWidget> {
                   ),
                 ],
               ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
-                child: FFButtonWidget(
-                  onPressed: () async {
-                    await RessenyesTable().insert({
-                      'idRessenya': random_data.randomInteger(100, 500),
-                      'Comentari': _model.textController.text,
-                      'Valoracions': _model.ratingBarValue2?.round(),
-                      'ReviewSended': widget.usuariRessenya,
-                    });
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: Text(
-                          'Ressenya enviada',
-                          style: TextStyle(
-                            color: FlutterFlowTheme.of(context).primaryText,
-                          ),
-                        ),
-                        duration: Duration(milliseconds: 4000),
-                        backgroundColor: FlutterFlowTheme.of(context).secondary,
+              FFButtonWidget(
+                onPressed: () async {
+                  await RessenyesTable().insert({
+                    'idRessenya': random_data.randomInteger(0,
+                        1000000000000000000),
+                    'Valoracions': _model.ratingBarValue2?.round(),
+                    'Comentari': _model.textController.text,
+                    'ReviewSended': currentUserUid,
+                    'ReviewGiven': widget.usuariRessenya,
+                  });
+                },
+                text: 'Button',
+                options: FFButtonOptions(
+                  height: 40.0,
+                  padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                  iconPadding:
+                      EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                  color: FlutterFlowTheme.of(context).primary,
+                  textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                        fontFamily: 'Poppins',
+                        color: Colors.white,
                       ),
-                    );
-                  },
-                  text: 'Enviar',
-                  options: FFButtonOptions(
-                    height: 40.0,
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                    iconPadding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    color: FlutterFlowTheme.of(context).primary,
-                    textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                          fontFamily: 'Poppins',
-                          color: Colors.white,
-                        ),
-                    elevation: 3.0,
-                    borderSide: BorderSide(
-                      color: Colors.transparent,
-                      width: 1.0,
-                    ),
-                    borderRadius: BorderRadius.circular(8.0),
+                  elevation: 3.0,
+                  borderSide: BorderSide(
+                    color: Colors.transparent,
+                    width: 1.0,
                   ),
+                  borderRadius: BorderRadius.circular(8.0),
                 ),
               ),
             ],

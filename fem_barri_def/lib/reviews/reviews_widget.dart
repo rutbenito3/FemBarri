@@ -323,7 +323,7 @@ class _ReviewsWidgetState extends State<ReviewsWidget>
                         FutureBuilder<List<RessenyesRow>>(
                           future: RessenyesTable().queryRows(
                             queryFn: (q) => q.eq(
-                              'ReviewGiven',
+                              'Receptor',
                               currentUserUid,
                             ),
                           ),
@@ -403,7 +403,7 @@ class _ReviewsWidgetState extends State<ReviewsWidget>
                                                                 q.eq(
                                                               'idUsuari',
                                                               listViewRessenyesRow
-                                                                  .reviewSended,
+                                                                  .hechaPor,
                                                             ),
                                                           ),
                                                           builder: (context,
@@ -504,7 +504,7 @@ class _ReviewsWidgetState extends State<ReviewsWidget>
                                                           queryFn: (q) => q.eq(
                                                             'idUsuari',
                                                             listViewRessenyesRow
-                                                                .reviewSended,
+                                                                .hechaPor,
                                                           ),
                                                         ),
                                                         builder: (context,
