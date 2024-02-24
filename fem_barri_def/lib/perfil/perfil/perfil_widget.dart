@@ -12,6 +12,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+
 import 'perfil_model.dart';
 export 'perfil_model.dart';
 
@@ -37,15 +38,15 @@ class _PerfilWidgetState extends State<PerfilWidget>
           curve: Curves.easeInOut,
           delay: 400.ms,
           duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
+          begin: 0,
+          end: 1,
         ),
         MoveEffect(
           curve: Curves.easeInOut,
           delay: 400.ms,
           duration: 600.ms,
-          begin: Offset(0.0, 60.0),
-          end: Offset(0.0, 0.0),
+          begin: Offset(0, 60),
+          end: Offset(0, 0),
         ),
       ],
     ),
@@ -87,8 +88,8 @@ class _PerfilWidgetState extends State<PerfilWidget>
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
             body: Center(
               child: SizedBox(
-                width: 50.0,
-                height: 50.0,
+                width: 50,
+                height: 50,
                 child: CircularProgressIndicator(
                   valueColor: AlwaysStoppedAnimation<Color>(
                     FlutterFlowTheme.of(context).primary,
@@ -113,12 +114,12 @@ class _PerfilWidgetState extends State<PerfilWidget>
               automaticallyImplyLeading: false,
               leading: FlutterFlowIconButton(
                 borderColor: Colors.transparent,
-                borderRadius: 30.0,
-                buttonSize: 48.0,
+                borderRadius: 30,
+                buttonSize: 48,
                 icon: Icon(
                   Icons.arrow_back_rounded,
                   color: Colors.white,
-                  size: 30.0,
+                  size: 30,
                 ),
                 onPressed: () async {
                   context.pushNamed('MainPrincipal');
@@ -129,12 +130,12 @@ class _PerfilWidgetState extends State<PerfilWidget>
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Poppins',
                       color: Colors.white,
-                      fontSize: 20.0,
+                      fontSize: 20,
                     ),
               ),
               actions: [],
               centerTitle: false,
-              elevation: 0.0,
+              elevation: 0,
             ),
             body: SingleChildScrollView(
               child: Column(
@@ -142,28 +143,28 @@ class _PerfilWidgetState extends State<PerfilWidget>
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Align(
-                    alignment: AlignmentDirectional(0.0, 0.0),
+                    alignment: AlignmentDirectional(0, 0),
                     child: Container(
-                      height: 114.0,
+                      height: 114,
                       child: Stack(
                         children: [
                           Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
+                            alignment: AlignmentDirectional(0, 0),
                             child: Container(
-                              width: 90.0,
-                              height: 90.0,
+                              width: 90,
+                              height: 90,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context).accent2,
                                 shape: BoxShape.circle,
                                 border: Border.all(
                                   color: FlutterFlowTheme.of(context).secondary,
-                                  width: 2.0,
+                                  width: 2,
                                 ),
                               ),
                               child: Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
+                                alignment: AlignmentDirectional(0, 0),
                                 child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(50.0),
+                                  borderRadius: BorderRadius.circular(50),
                                   child: CachedNetworkImage(
                                     fadeInDuration: Duration(milliseconds: 500),
                                     fadeOutDuration:
@@ -172,8 +173,8 @@ class _PerfilWidgetState extends State<PerfilWidget>
                                       perfilUsuarisRow?.fotoUsuari,
                                       'https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png',
                                     ),
-                                    width: 120.0,
-                                    height: 120.0,
+                                    width: 120,
+                                    height: 120,
                                     fit: BoxFit.contain,
                                   ),
                                 ),
@@ -185,7 +186,7 @@ class _PerfilWidgetState extends State<PerfilWidget>
                     ),
                   ),
                   Align(
-                    alignment: AlignmentDirectional(0.0, 0.0),
+                    alignment: AlignmentDirectional(0, 0),
                     child: Text(
                       valueOrDefault<String>(
                         perfilUsuarisRow?.nomPersona,
@@ -195,10 +196,9 @@ class _PerfilWidgetState extends State<PerfilWidget>
                     ),
                   ),
                   Align(
-                    alignment: AlignmentDirectional(0.0, 0.0),
+                    alignment: AlignmentDirectional(0, 0),
                     child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 16.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 16),
                       child: Text(
                         valueOrDefault<String>(
                           perfilUsuarisRow?.email,
@@ -209,16 +209,14 @@ class _PerfilWidgetState extends State<PerfilWidget>
                     ),
                   ),
                   Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(24.0, 4.0, 0.0, 0.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(24, 4, 0, 0),
                     child: Text(
                       'El teu compte',
                       style: FlutterFlowTheme.of(context).titleLarge,
                     ),
                   ),
                   Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
                     child: InkWell(
                       splashColor: Colors.transparent,
                       focusColor: Colors.transparent,
@@ -229,25 +227,25 @@ class _PerfilWidgetState extends State<PerfilWidget>
                       },
                       child: Container(
                         width: double.infinity,
-                        height: 60.0,
+                        height: 60,
                         decoration: BoxDecoration(
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
                           boxShadow: [
                             BoxShadow(
-                              blurRadius: 3.0,
+                              blurRadius: 3,
                               color: Color(0x33000000),
-                              offset: Offset(0.0, 1.0),
+                              offset: Offset(0, 1),
                             )
                           ],
-                          borderRadius: BorderRadius.circular(8.0),
+                          borderRadius: BorderRadius.circular(8),
                           shape: BoxShape.rectangle,
                           border: Border.all(
                             color: Color(0xFF2D2D2D),
                           ),
                         ),
                         child: Padding(
-                          padding: EdgeInsets.all(12.0),
+                          padding: EdgeInsets.all(12),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -255,11 +253,11 @@ class _PerfilWidgetState extends State<PerfilWidget>
                                 Icons.account_circle_outlined,
                                 color:
                                     FlutterFlowTheme.of(context).secondaryText,
-                                size: 24.0,
+                                size: 24,
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    12.0, 0.0, 0.0, 0.0),
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
                                 child: Text(
                                   'Editar Perfil',
                                   style:
@@ -268,12 +266,12 @@ class _PerfilWidgetState extends State<PerfilWidget>
                               ),
                               Expanded(
                                 child: Align(
-                                  alignment: AlignmentDirectional(0.9, 0.0),
+                                  alignment: AlignmentDirectional(0.9, 0),
                                   child: Icon(
                                     Icons.arrow_forward_ios,
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryText,
-                                    size: 18.0,
+                                    size: 18,
                                   ),
                                 ),
                               ),
@@ -284,8 +282,7 @@ class _PerfilWidgetState extends State<PerfilWidget>
                     ),
                   ),
                   Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
                     child: InkWell(
                       splashColor: Colors.transparent,
                       focusColor: Colors.transparent,
@@ -296,25 +293,25 @@ class _PerfilWidgetState extends State<PerfilWidget>
                       },
                       child: Container(
                         width: double.infinity,
-                        height: 60.0,
+                        height: 60,
                         decoration: BoxDecoration(
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
                           boxShadow: [
                             BoxShadow(
-                              blurRadius: 3.0,
+                              blurRadius: 3,
                               color: Color(0x33000000),
-                              offset: Offset(0.0, 1.0),
+                              offset: Offset(0, 1),
                             )
                           ],
-                          borderRadius: BorderRadius.circular(8.0),
+                          borderRadius: BorderRadius.circular(8),
                           shape: BoxShape.rectangle,
                           border: Border.all(
                             color: Color(0xFF2D2D2D),
                           ),
                         ),
                         child: Padding(
-                          padding: EdgeInsets.all(12.0),
+                          padding: EdgeInsets.all(12),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -322,11 +319,11 @@ class _PerfilWidgetState extends State<PerfilWidget>
                                 FontAwesomeIcons.gift,
                                 color:
                                     FlutterFlowTheme.of(context).secondaryText,
-                                size: 24.0,
+                                size: 24,
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    12.0, 0.0, 0.0, 0.0),
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
                                 child: Text(
                                   'El Granet de Sorra',
                                   style:
@@ -335,12 +332,12 @@ class _PerfilWidgetState extends State<PerfilWidget>
                               ),
                               Expanded(
                                 child: Align(
-                                  alignment: AlignmentDirectional(0.9, 0.0),
+                                  alignment: AlignmentDirectional(0.9, 0),
                                   child: Icon(
                                     Icons.arrow_forward_ios,
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryText,
-                                    size: 18.0,
+                                    size: 18,
                                   ),
                                 ),
                               ),
@@ -351,8 +348,7 @@ class _PerfilWidgetState extends State<PerfilWidget>
                     ),
                   ),
                   Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
                     child: InkWell(
                       splashColor: Colors.transparent,
                       focusColor: Colors.transparent,
@@ -363,25 +359,25 @@ class _PerfilWidgetState extends State<PerfilWidget>
                       },
                       child: Container(
                         width: double.infinity,
-                        height: 60.0,
+                        height: 60,
                         decoration: BoxDecoration(
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
                           boxShadow: [
                             BoxShadow(
-                              blurRadius: 3.0,
+                              blurRadius: 3,
                               color: Color(0x33000000),
-                              offset: Offset(0.0, 1.0),
+                              offset: Offset(0, 1),
                             )
                           ],
-                          borderRadius: BorderRadius.circular(8.0),
+                          borderRadius: BorderRadius.circular(8),
                           shape: BoxShape.rectangle,
                           border: Border.all(
                             color: Color(0xFF2D2D2D),
                           ),
                         ),
                         child: Padding(
-                          padding: EdgeInsets.all(12.0),
+                          padding: EdgeInsets.all(12),
                           child: InkWell(
                             splashColor: Colors.transparent,
                             focusColor: Colors.transparent,
@@ -397,11 +393,11 @@ class _PerfilWidgetState extends State<PerfilWidget>
                                   Icons.account_circle_outlined,
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryText,
-                                  size: 24.0,
+                                  size: 24,
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      12.0, 0.0, 0.0, 0.0),
+                                      12, 0, 0, 0),
                                   child: Text(
                                     'Reviews',
                                     style:
@@ -410,12 +406,12 @@ class _PerfilWidgetState extends State<PerfilWidget>
                                 ),
                                 Expanded(
                                   child: Align(
-                                    alignment: AlignmentDirectional(0.9, 0.0),
+                                    alignment: AlignmentDirectional(0.9, 0),
                                     child: Icon(
                                       Icons.arrow_forward_ios,
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryText,
-                                      size: 18.0,
+                                      size: 18,
                                     ),
                                   ),
                                 ),
@@ -427,47 +423,45 @@ class _PerfilWidgetState extends State<PerfilWidget>
                     ),
                   ),
                   Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 0.0, 0.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(24, 16, 0, 0),
                     child: Text(
                       'Configuració',
                       style: FlutterFlowTheme.of(context).titleLarge,
                     ),
                   ),
                   Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
                     child: Container(
                       width: double.infinity,
-                      height: 60.0,
+                      height: 60,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                         boxShadow: [
                           BoxShadow(
-                            blurRadius: 3.0,
+                            blurRadius: 3,
                             color: Color(0x33000000),
-                            offset: Offset(0.0, 1.0),
+                            offset: Offset(0, 1),
                           )
                         ],
-                        borderRadius: BorderRadius.circular(8.0),
+                        borderRadius: BorderRadius.circular(8),
                         shape: BoxShape.rectangle,
                         border: Border.all(
                           color: Color(0xFF2D2D2D),
                         ),
                       ),
                       child: Padding(
-                        padding: EdgeInsets.all(12.0),
+                        padding: EdgeInsets.all(12),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Icon(
                               Icons.help_outline_rounded,
                               color: FlutterFlowTheme.of(context).secondaryText,
-                              size: 24.0,
+                              size: 24,
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  12.0, 0.0, 0.0, 0.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
                               child: Text(
                                 'Suport',
                                 style: FlutterFlowTheme.of(context).labelLarge,
@@ -475,12 +469,12 @@ class _PerfilWidgetState extends State<PerfilWidget>
                             ),
                             Expanded(
                               child: Align(
-                                alignment: AlignmentDirectional(0.9, 0.0),
+                                alignment: AlignmentDirectional(0.9, 0),
                                 child: Icon(
                                   Icons.arrow_forward_ios,
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryText,
-                                  size: 18.0,
+                                  size: 18,
                                 ),
                               ),
                             ),
@@ -490,39 +484,38 @@ class _PerfilWidgetState extends State<PerfilWidget>
                     ),
                   ),
                   Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
                     child: Container(
                       width: double.infinity,
-                      height: 60.0,
+                      height: 60,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                         boxShadow: [
                           BoxShadow(
-                            blurRadius: 3.0,
+                            blurRadius: 3,
                             color: Color(0x33000000),
-                            offset: Offset(0.0, 1.0),
+                            offset: Offset(0, 1),
                           )
                         ],
-                        borderRadius: BorderRadius.circular(8.0),
+                        borderRadius: BorderRadius.circular(8),
                         shape: BoxShape.rectangle,
                         border: Border.all(
                           color: Color(0xFF2D2D2D),
                         ),
                       ),
                       child: Padding(
-                        padding: EdgeInsets.all(12.0),
+                        padding: EdgeInsets.all(12),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Icon(
                               Icons.privacy_tip_rounded,
                               color: FlutterFlowTheme.of(context).secondaryText,
-                              size: 24.0,
+                              size: 24,
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  12.0, 0.0, 0.0, 0.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
                               child: Text(
                                 'Termes del servei',
                                 style: FlutterFlowTheme.of(context).labelLarge,
@@ -530,12 +523,12 @@ class _PerfilWidgetState extends State<PerfilWidget>
                             ),
                             Expanded(
                               child: Align(
-                                alignment: AlignmentDirectional(0.9, 0.0),
+                                alignment: AlignmentDirectional(0.9, 0),
                                 child: Icon(
                                   Icons.arrow_forward_ios,
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryText,
-                                  size: 18.0,
+                                  size: 18,
                                 ),
                               ),
                             ),
@@ -545,26 +538,24 @@ class _PerfilWidgetState extends State<PerfilWidget>
                     ),
                   ),
                   Align(
-                    alignment: AlignmentDirectional(0.0, 0.0),
+                    alignment: AlignmentDirectional(0, 0),
                     child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
                       child: FFButtonWidget(
                         onPressed: () async {
                           GoRouter.of(context).prepareAuthEvent();
                           await authManager.signOut();
                           GoRouter.of(context).clearRedirectLocation();
 
-                          context.goNamedAuth('Splash', context.mounted);
+                          context.goNamedAuth('Login', context.mounted);
                         },
                         text: 'Tancar sessió',
                         options: FFButtonOptions(
-                          width: 150.0,
-                          height: 44.0,
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          iconPadding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
+                          width: 150,
+                          height: 44,
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                          iconPadding:
+                              EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                           color: Color(0xFF6B1168),
                           textStyle:
                               FlutterFlowTheme.of(context).bodyMedium.override(
@@ -572,12 +563,12 @@ class _PerfilWidgetState extends State<PerfilWidget>
                                     color: Colors.white,
                                     fontWeight: FontWeight.w500,
                                   ),
-                          elevation: 0.0,
+                          elevation: 0,
                           borderSide: BorderSide(
                             color: Color(0xFF2D2D2D),
-                            width: 2.0,
+                            width: 2,
                           ),
-                          borderRadius: BorderRadius.circular(12.0),
+                          borderRadius: BorderRadius.circular(12),
                         ),
                       ).animateOnPageLoad(
                           animationsMap['buttonOnPageLoadAnimation']!),

@@ -9,9 +9,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+
 import 'afegir_ressenya_model.dart';
 export 'afegir_ressenya_model.dart';
-
 
 class AfegirRessenyaWidget extends StatefulWidget {
   const AfegirRessenyaWidget({
@@ -60,12 +60,12 @@ class _AfegirRessenyaWidgetState extends State<AfegirRessenyaWidget> {
           automaticallyImplyLeading: false,
           leading: FlutterFlowIconButton(
             borderColor: Colors.transparent,
-            borderRadius: 30.0,
-            buttonSize: 48.0,
+            borderRadius: 30,
+            buttonSize: 48,
             icon: Icon(
               Icons.arrow_back_rounded,
               color: Colors.white,
-              size: 30.0,
+              size: 30,
             ),
             onPressed: () async {
               context.safePop();
@@ -76,12 +76,12 @@ class _AfegirRessenyaWidgetState extends State<AfegirRessenyaWidget> {
             style: FlutterFlowTheme.of(context).bodyMedium.override(
                   fontFamily: 'Poppins',
                   color: Colors.white,
-                  fontSize: 20.0,
+                  fontSize: 20,
                 ),
           ),
           actions: [],
           centerTitle: false,
-          elevation: 0.0,
+          elevation: 0,
         ),
         body: SafeArea(
           top: true,
@@ -89,7 +89,7 @@ class _AfegirRessenyaWidgetState extends State<AfegirRessenyaWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -97,8 +97,7 @@ class _AfegirRessenyaWidgetState extends State<AfegirRessenyaWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              35.0, 0.0, 0.0, 0.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(35, 0, 0, 0),
                           child: FutureBuilder<List<UsuarisRow>>(
                             future: UsuarisTable().querySingleRow(
                               queryFn: (q) => q.eq(
@@ -111,8 +110,8 @@ class _AfegirRessenyaWidgetState extends State<AfegirRessenyaWidget> {
                               if (!snapshot.hasData) {
                                 return Center(
                                   child: SizedBox(
-                                    width: 50.0,
-                                    height: 50.0,
+                                    width: 50,
+                                    height: 50,
                                     child: CircularProgressIndicator(
                                       valueColor: AlwaysStoppedAnimation<Color>(
                                         FlutterFlowTheme.of(context).primary,
@@ -136,7 +135,7 @@ class _AfegirRessenyaWidgetState extends State<AfegirRessenyaWidget> {
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Poppins',
-                                      fontSize: 20.0,
+                                      fontSize: 20,
                                       fontWeight: FontWeight.bold,
                                     ),
                               );
@@ -147,8 +146,8 @@ class _AfegirRessenyaWidgetState extends State<AfegirRessenyaWidget> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  20.0, 0.0, 0.0, 0.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
                               child: RatingBar.builder(
                                 onRatingUpdate: (newValue) => setState(
                                     () => _model.ratingBarValue1 = newValue),
@@ -157,10 +156,10 @@ class _AfegirRessenyaWidgetState extends State<AfegirRessenyaWidget> {
                                   color: Color(0xFFFDF96A),
                                 ),
                                 direction: Axis.horizontal,
-                                initialRating: _model.ratingBarValue1 ??= 4.0,
+                                initialRating: _model.ratingBarValue1 ??= 4,
                                 unratedColor: Color(0xFF6B1168),
                                 itemCount: 5,
-                                itemSize: 22.0,
+                                itemSize: 22,
                                 glowColor: Color(0xFFFDF96A),
                               ),
                             ),
@@ -169,10 +168,9 @@ class _AfegirRessenyaWidgetState extends State<AfegirRessenyaWidget> {
                       ],
                     ),
                     Align(
-                      alignment: AlignmentDirectional(1.0, 0.0),
+                      alignment: AlignmentDirectional(1, 0),
                       child: Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(80.0, 0.0, 0.0, 0.0),
+                        padding: EdgeInsetsDirectional.fromSTEB(80, 0, 0, 0),
                         child: FutureBuilder<List<UsuarisRow>>(
                           future: UsuarisTable().querySingleRow(
                             queryFn: (q) => q.eq(
@@ -185,8 +183,8 @@ class _AfegirRessenyaWidgetState extends State<AfegirRessenyaWidget> {
                             if (!snapshot.hasData) {
                               return Center(
                                 child: SizedBox(
-                                  width: 50.0,
-                                  height: 50.0,
+                                  width: 50,
+                                  height: 50,
                                   child: CircularProgressIndicator(
                                     valueColor: AlwaysStoppedAnimation<Color>(
                                       FlutterFlowTheme.of(context).primary,
@@ -206,8 +204,8 @@ class _AfegirRessenyaWidgetState extends State<AfegirRessenyaWidget> {
                                     ? circleImageUsuarisRowList.first
                                     : null;
                             return Container(
-                              width: 60.0,
-                              height: 60.0,
+                              width: 60,
+                              height: 60,
                               clipBehavior: Clip.antiAlias,
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
@@ -228,8 +226,7 @@ class _AfegirRessenyaWidgetState extends State<AfegirRessenyaWidget> {
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(30.0, 40.0, 0.0, 0.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(30, 40, 0, 0),
                     child: Text(
                       'Valorar',
                       style: FlutterFlowTheme.of(context).bodyLarge,
@@ -238,13 +235,12 @@ class _AfegirRessenyaWidgetState extends State<AfegirRessenyaWidget> {
                 ],
               ),
               Align(
-                alignment: AlignmentDirectional(0.0, -1.0),
+                alignment: AlignmentDirectional(0, -1),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(30.0, 0.0, 0.0, 0.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(30, 0, 0, 0),
                       child: RatingBar.builder(
                         onRatingUpdate: (newValue) =>
                             setState(() => _model.ratingBarValue2 = newValue),
@@ -253,10 +249,10 @@ class _AfegirRessenyaWidgetState extends State<AfegirRessenyaWidget> {
                           color: Color(0xFFFDF96A),
                         ),
                         direction: Axis.horizontal,
-                        initialRating: _model.ratingBarValue2 ??= 4.0,
+                        initialRating: _model.ratingBarValue2 ??= 4,
                         unratedColor: Color(0xFF6B1168),
                         itemCount: 5,
-                        itemSize: 22.0,
+                        itemSize: 22,
                         glowColor: Color(0xFFFDF96A),
                       ),
                     ),
@@ -267,8 +263,7 @@ class _AfegirRessenyaWidgetState extends State<AfegirRessenyaWidget> {
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(30.0, 20.0, 0.0, 0.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(30, 20, 0, 0),
                     child: Text(
                       'Escriu un comentari',
                       style: FlutterFlowTheme.of(context).bodyLarge,
@@ -281,8 +276,7 @@ class _AfegirRessenyaWidgetState extends State<AfegirRessenyaWidget> {
                 children: [
                   Expanded(
                     child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(30.0, 5.0, 30.0, 0.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(30, 5, 30, 0),
                       child: TextFormField(
                         controller: _model.textController,
                         focusNode: _model.textFieldFocusNode,
@@ -295,30 +289,30 @@ class _AfegirRessenyaWidgetState extends State<AfegirRessenyaWidget> {
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Color(0xFF2D2D2D),
-                              width: 2.0,
+                              width: 2,
                             ),
-                            borderRadius: BorderRadius.circular(8.0),
+                            borderRadius: BorderRadius.circular(8),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: FlutterFlowTheme.of(context).primary,
-                              width: 2.0,
+                              width: 2,
                             ),
-                            borderRadius: BorderRadius.circular(8.0),
+                            borderRadius: BorderRadius.circular(8),
                           ),
                           errorBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: FlutterFlowTheme.of(context).error,
-                              width: 2.0,
+                              width: 2,
                             ),
-                            borderRadius: BorderRadius.circular(8.0),
+                            borderRadius: BorderRadius.circular(8),
                           ),
                           focusedErrorBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: FlutterFlowTheme.of(context).error,
-                              width: 2.0,
+                              width: 2,
                             ),
-                            borderRadius: BorderRadius.circular(8.0),
+                            borderRadius: BorderRadius.circular(8),
                           ),
                         ),
                         style: FlutterFlowTheme.of(context).bodyMedium,
@@ -329,34 +323,35 @@ class _AfegirRessenyaWidgetState extends State<AfegirRessenyaWidget> {
                   ),
                 ],
               ),
-              FFButtonWidget(
-                onPressed: () async {
-                  await RessenyesTable().insert({
-                    'idRessenya': random_data.randomInteger(0,
-                        1000000000000000000),
-                    'Valoracions': _model.ratingBarValue2?.round(),
-                    'Comentari': _model.textController.text,
-                    'ReviewSended': currentUserUid,
-                    'ReviewGiven': widget.usuariRessenya,
-                  });
-                },
-                text: 'Button',
-                options: FFButtonOptions(
-                  height: 40.0,
-                  padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                  iconPadding:
-                      EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                  color: FlutterFlowTheme.of(context).primary,
-                  textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                        fontFamily: 'Poppins',
-                        color: Colors.white,
-                      ),
-                  elevation: 3.0,
-                  borderSide: BorderSide(
-                    color: Colors.transparent,
-                    width: 1.0,
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                child: FFButtonWidget(
+                  onPressed: () async {
+                    await RessenyesTable().insert({
+                      'idRessenya': random_data.randomInteger(0, 1000000),
+                      'Valoracions': _model.ratingBarValue2?.round(),
+                      'Comentari': _model.textController.text,
+                      'HechaPor': currentUserUid,
+                      'Receptor': widget.usuariRessenya,
+                    });
+                  },
+                  text: 'Enviar',
+                  options: FFButtonOptions(
+                    height: 40,
+                    padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                    iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                    color: FlutterFlowTheme.of(context).primary,
+                    textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                          fontFamily: 'Poppins',
+                          color: Colors.white,
+                        ),
+                    elevation: 3,
+                    borderSide: BorderSide(
+                      color: Colors.transparent,
+                      width: 1,
+                    ),
+                    borderRadius: BorderRadius.circular(8),
                   ),
-                  borderRadius: BorderRadius.circular(8.0),
                 ),
               ),
             ],
