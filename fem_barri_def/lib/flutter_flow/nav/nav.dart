@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:fem_barri_def/reviews/reviews_widget.dart';
+import 'package:fem_barri_def/reviews_usuarios/reviews_usuarios_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:page_transition/page_transition.dart';
@@ -161,6 +162,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => DetallsProductesWidget(
             nomProducte: params.getParam('nomProducte', ParamType.String),
             aportatPer: params.getParam('aportatPer', ParamType.String),
+            nomUsuari: params.getParam('nomUsuari', ParamType.String),
           ),
         ),
         FFRoute(
@@ -190,7 +192,18 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             nomUsuari: params.getParam('nomUsuari', ParamType.String),
           ),
 
-        )
+),
+        FFRoute(
+          name: 'ReviewsUsuarios',
+          path: '/reviewsUsuarios',
+          builder: (context, params) => ReviewsUsuariosWidget(
+            nomProducte: params.getParam('nomProducte', ParamType.String),
+            nomUsuario: params.getParam('nomUsuario', ParamType.String),
+            idUsuario: params.getParam('idUsuario', ParamType.String),
+          ),
+        ),
+
+        
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
 
@@ -358,7 +371,8 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.location);
-            return '/splash';
+            // return '/splash';
+            return '/login';
           }
           return null;
         },

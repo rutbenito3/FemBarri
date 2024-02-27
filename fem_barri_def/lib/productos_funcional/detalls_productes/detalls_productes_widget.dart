@@ -1,5 +1,3 @@
-import 'package:fem_barri_def/xat/chat.dart';
-
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -7,25 +5,27 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'detalls_productes_model.dart';
 export 'detalls_productes_model.dart';
+import 'package:fem_barri_def/xat/chat.dart';
 
 class DetallsProductesWidget extends StatefulWidget {
   const DetallsProductesWidget({
-    Key? key,
+    super.key,
     required this.nomProducte,
     this.aportatPer,
-  }) : super(key: key);
+    this.nomUsuari,
+  });
 
   final String? nomProducte;
   final String? aportatPer;
+  final String? nomUsuari;
 
   @override
-  _DetallsProductesWidgetState createState() => _DetallsProductesWidgetState();
+  State<DetallsProductesWidget> createState() => _DetallsProductesWidgetState();
 }
 
 class _DetallsProductesWidgetState extends State<DetallsProductesWidget> {
@@ -48,15 +48,6 @@ class _DetallsProductesWidgetState extends State<DetallsProductesWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -360,9 +351,13 @@ class _DetallsProductesWidgetState extends State<DetallsProductesWidget> {
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
                                       context.pushNamed(
-                                        'AfegirRessenya',
+                                        'ReviewsUsuarios',
                                         queryParameters: {
-                                          'usuariRessenya': serializeParam(
+                                          'nomUsuario': serializeParam(
+                                            textUsuarisRow?.nomPersona,
+                                            ParamType.String,
+                                          ),
+                                          'idUsuario': serializeParam(
                                             columnProductesRow?.fKidUs,
                                             ParamType.String,
                                           ),
@@ -441,19 +436,36 @@ class _DetallsProductesWidgetState extends State<DetallsProductesWidget> {
                                     circleImageUsuarisRowList.isNotEmpty
                                         ? circleImageUsuarisRowList.first
                                         : null;
-                                return Container(
-                                  width: 60.0,
-                                  height: 60.0,
-                                  clipBehavior: Clip.antiAlias,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: Image.network(
-                                    valueOrDefault<String>(
-                                      circleImageUsuarisRow?.fotoUsuari,
-                                      'https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png',
+                                return InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.pushNamed(
+                                      'AfegirRessenya',
+                                      queryParameters: {
+                                        'usuariRessenya': serializeParam(
+                                          columnProductesRow?.fKidUs,
+                                          ParamType.String,
+                                        ),
+                                      }.withoutNulls,
+                                    );
+                                  },
+                                  child: Container(
+                                    width: 60.0,
+                                    height: 60.0,
+                                    clipBehavior: Clip.antiAlias,
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
                                     ),
-                                    fit: BoxFit.cover,
+                                    child: Image.network(
+                                      valueOrDefault<String>(
+                                        circleImageUsuarisRow?.fotoUsuari,
+                                        'https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png',
+                                      ),
+                                      fit: BoxFit.cover,
+                                    ),
                                   ),
                                 );
                               },
