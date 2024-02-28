@@ -250,7 +250,7 @@ class _MainPrincipalWidgetState extends State<MainPrincipalWidget> {
                                 selectedCategory = val;
                               });
                             },
-                            width: 220.0,
+                            width: 350.0,
                             height: 40.0,
                             textStyle: FlutterFlowTheme.of(context).bodyMedium,
                             hintText: 'Please select...',
@@ -387,6 +387,7 @@ class _MainPrincipalWidgetState extends State<MainPrincipalWidget> {
                                         ),
                                       ),
                                     ),
+                                                      
                                   ],
                                 ),
                               ),
@@ -396,8 +397,17 @@ class _MainPrincipalWidgetState extends State<MainPrincipalWidget> {
                       );
                     },
                   ),
+                  
                 ),
+                 Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(0, 50, 0, 0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [],
+                    ),
+                  ),
               ],
+              
             ),
           ),
         );
