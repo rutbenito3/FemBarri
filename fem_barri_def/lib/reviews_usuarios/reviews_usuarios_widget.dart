@@ -177,25 +177,21 @@ class _ReviewsUsuariosWidgetState extends State<ReviewsUsuariosWidget>
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 0.0, 12.0),
-                                      child: Text(
-                                        valueOrDefault<String>(
-                                          widget.nomUsuario,
-                                          'nomUsuario',
-                                        ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .displaySmall
-                                            .override(
-                                              fontFamily: 'Lexend Deca',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryText,
-                                              fontSize: 28.0,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                      ),
-                                    ),
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 12),
+                      child: Text(
+                        valueOrDefault<String>(
+                          widget.nomUsuario,
+                          'nomUsuario',
+                        ),
+                        style: FlutterFlowTheme.of(context).displaySmall.override(
+                              fontFamily: 'Lexend Deca',
+                              color: FlutterFlowTheme.of(context).primaryText,
+                              fontSize: 28,
+                              fontWeight: FontWeight.bold,
+                            ),
+                      ),
+                    )
+
                                   ],
                                 ),
                                 Column(
@@ -559,43 +555,7 @@ class _ReviewsUsuariosWidgetState extends State<ReviewsUsuariosWidget>
                       ],
                     ),
                   ),
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
-                    child: FFButtonWidget(
-                      onPressed: () async {
-                        context.pushNamed(
-                          'AfegirRessenyaUsuari',
-                          queryParameters: {
-                            'usuariRessenya': serializeParam(
-                              columnProductesRow?.fKidUs,
-                              ParamType.String,
-                            ),
-                          }.withoutNulls,
-                        );
-                      },
-                      text: 'Afegir ressenya',
-                      options: FFButtonOptions(
-                        height: 40.0,
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            24.0, 0.0, 24.0, 0.0),
-                        iconPadding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: FlutterFlowTheme.of(context).primary,
-                        textStyle:
-                            FlutterFlowTheme.of(context).titleSmall.override(
-                                  fontFamily: 'Poppins',
-                                  color: Colors.white,
-                                ),
-                        elevation: 3.0,
-                        borderSide: BorderSide(
-                          color: Colors.transparent,
-                          width: 1.0,
-                        ),
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                    ),
-                  ),
+                  
                 ],
               ),
             );
