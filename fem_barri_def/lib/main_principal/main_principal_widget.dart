@@ -250,7 +250,7 @@ class _MainPrincipalWidgetState extends State<MainPrincipalWidget> {
                                 selectedCategory = val;
                               });
                             },
-                            width: 350.0,
+                            width: 340.0,
                             height: 40.0,
                             textStyle: FlutterFlowTheme.of(context).bodyMedium,
                             hintText: 'Please select...',
@@ -400,7 +400,7 @@ class _MainPrincipalWidgetState extends State<MainPrincipalWidget> {
                   
                 ),
                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 50, 0, 0),
+                    padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [],
