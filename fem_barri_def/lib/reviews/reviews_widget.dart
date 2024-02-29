@@ -605,35 +605,35 @@ class _ReviewsWidgetState extends State<ReviewsWidget>
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Align(
-                          alignment: AlignmentDirectional(1.0, 0.0),
-                          child: FFButtonWidget(
-                            onPressed: () {
-                              print('Button pressed ...');
-                            },
-                            text: 'Valorar',
-                            options: FFButtonOptions(
-                              height: 40.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  24.0, 0.0, 24.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              color: Color(0xFF6B1168),
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .titleSmall
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.white,
-                                  ),
-                              elevation: 3.0,
-                              borderSide: BorderSide(
-                                color: Colors.transparent,
-                                width: 1.0,
-                              ),
-                              borderRadius: BorderRadius.circular(8.0),
-                            ),
-                          ),
-                        ),
+                        // Align(
+                        //   alignment: AlignmentDirectional(1.0, 0.0),
+                        //   child: FFButtonWidget(
+                        //     onPressed: () {
+                        //       print('Button pressed ...');
+                        //     },
+                        //     text: 'Valorar',
+                        //     options: FFButtonOptions(
+                        //       height: 40.0,
+                        //       padding: EdgeInsetsDirectional.fromSTEB(
+                        //           24.0, 0.0, 24.0, 0.0),
+                        //       iconPadding: EdgeInsetsDirectional.fromSTEB(
+                        //           0.0, 0.0, 0.0, 0.0),
+                        //       color: Color(0xFF6B1168),
+                        //       textStyle: FlutterFlowTheme.of(context)
+                        //           .titleSmall
+                        //           .override(
+                        //             fontFamily: 'Poppins',
+                        //             color: Colors.white,
+                        //           ),
+                        //       elevation: 3.0,
+                        //       borderSide: BorderSide(
+                        //         color: Colors.transparent,
+                        //         width: 1.0,
+                        //       ),
+                        //       borderRadius: BorderRadius.circular(8.0),
+                        //     ),
+                        //   ),
+                        // ),
                       ],
                     ),
                   ),
