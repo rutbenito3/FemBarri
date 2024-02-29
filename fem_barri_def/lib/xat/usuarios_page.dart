@@ -73,16 +73,16 @@ try {
     _usuarios = usuarios;
   });
 } catch (error) {
-  print('Error loading usuarios: $error');
+  print('Error carregant usuaris: $error');
 }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Usuarios')),
+      appBar: AppBar(title: const Text('Usuaris')),
       body: _usuarios.isEmpty
-          ? const Center(child: Text('No hay usuarios disponibles'))
+          ? const Center(child: Text('No hi ha usuaris disponibles'))
       :ListView.builder(
         itemCount: _usuarios.length,
         itemBuilder: (context, index) {
