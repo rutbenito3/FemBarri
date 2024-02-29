@@ -1,7 +1,5 @@
- // usuarios_page.dart
 import 'package:fem_barri_def/xat/chat.dart';
 import 'package:flutter/material.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
 import 'constants.dart';
 import 'models.dart';
 
@@ -19,26 +17,12 @@ class UsuariosPage extends StatefulWidget {
 }
 
 class _UsuariosPageState extends State<UsuariosPage> {
-  late final Stream<List<Usuario>> _usuariosStream;
   List<Usuario> _usuarios = [];
   final String myUserId = supabase.auth.currentUser!.id; // Obtener tu ID de usuario
 
   @override
   void initState() {
     super.initState();
-    _usuariosStream = supabase
-        .from('messages')
-        .select('sent_to')
-        .execute()
-        .then((response) {
-      final sentToList = response.data as List;
-      final uniqueSentTo = sentToList.map((sentTo) => sentTo['sent_to']).toSet();
-      return supabase.from('Usuaris').select().in_('idUsuari', uniqueSentTo.toList()).execute();
-    }).then((userResponses) {
-      return userResponses.data as List;
-    }).then((usuariosData) {
-      return usuariosData.map((map) => Usuario.fromMap(map)).toList();
-    }).asStream();
 
     _loadUsuarios();
   }

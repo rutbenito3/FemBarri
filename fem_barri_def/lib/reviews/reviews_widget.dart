@@ -4,13 +4,9 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'reviews_model.dart';
 export 'reviews_model.dart';
 
@@ -141,10 +137,6 @@ class _ReviewsWidgetState extends State<ReviewsWidget>
                 ),
               );
             }
-            List<ProductesRow> columnProductesRowList = snapshot.data!;
-            final columnProductesRow = columnProductesRowList.isNotEmpty
-                ? columnProductesRowList.first
-                : null;
             return SingleChildScrollView(
               child: Column(
                 mainAxisSize: MainAxisSize.max,
@@ -274,15 +266,6 @@ class _ReviewsWidgetState extends State<ReviewsWidget>
                                                   ),
                                                 );
                                               }
-                                              List<RessenyesRow>
-                                                  textRessenyesRowList =
-                                                  snapshot.data!;
-                                              final textRessenyesRow =
-                                                  textRessenyesRowList
-                                                          .isNotEmpty
-                                                      ? textRessenyesRowList
-                                                          .first
-                                                      : null;
                                               return Text(
                                                 '4.6',
                                                 style: FlutterFlowTheme.of(

@@ -10,8 +10,6 @@ import '/flutter_flow/upload_data.dart';
 import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'afegir_producte_model.dart';
 export 'afegir_producte_model.dart';
 
@@ -121,7 +119,7 @@ class _AfegirProducteWidgetState extends State<AfegirProducteWidget> {
                                 child: Image.network(
                                   valueOrDefault<String>(
                                     _model.uploadedFileUrl,
-                                    'https://www.tea-tron.com/antorodriguez/blog/wp-content/uploads/2016/04/image-not-found-4a963b95bf081c3ea02923dceaeb3f8085e1a654fc54840aac61a57a60903fef.png',
+                                    'https://upload.wikimedia.org/wikipedia/commons/a/a3/Image-not-found.png',
                                   ),
                                   fit: BoxFit.cover,
                                 ),

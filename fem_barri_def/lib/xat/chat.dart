@@ -66,7 +66,6 @@ class _ChatPageState extends State<ChatPage> {
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             final messages = snapshot.data!;
-            var otherUserId= widget.otherUserId;
             return Column(
               children: [
                 Expanded(
