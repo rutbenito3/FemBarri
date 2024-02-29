@@ -202,7 +202,85 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             idUsuario: params.getParam('idUsuario', ParamType.String),
           ),
         ),
+        FFRoute(
 
+	
+
+          name: 'AfegirRessenyaUsuari',
+
+	
+
+          path: '/afegirRessenyaUsuari',
+
+	
+
+          builder: (context, params) => AfegirRessenyaWidget(
+
+	
+
+            usuariRessenya: params.getParam('usuariRessenya', ParamType.String),
+
+	
+
+          ),
+
+	
+
+        ),
+
+	
+
+        FFRoute(
+
+	
+
+          name: 'GranetSorraCopy',
+
+	
+
+          path: '/granetSorraCopy',
+
+	
+
+          builder: (context, params) => NavBarPage(
+
+	
+
+            initialPage: '',
+
+	
+
+            page: GranetSorraWidget(),
+
+	
+
+          ),
+
+	
+
+        ),
+
+	
+
+        FFRoute(
+
+	
+
+          name: 'GranetSorraa',
+
+	
+
+          path: '/granetSorraa',
+
+	
+
+          builder: (context, params) => GranetSorraWidget(),
+
+        
+
+	
+
+        )
         
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
