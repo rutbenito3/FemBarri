@@ -10,6 +10,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+
 import 'reviews_usuarios_model.dart';
 export 'reviews_usuarios_model.dart';
 
@@ -43,22 +44,22 @@ class _ReviewsUsuariosWidgetState extends State<ReviewsUsuariosWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 450.ms,
-          begin: 0.0,
-          end: 1.0,
+          begin: 0,
+          end: 1,
         ),
         MoveEffect(
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 450.ms,
-          begin: Offset(0.0, 76.0),
-          end: Offset(0.0, 0.0),
+          begin: Offset(0, 76),
+          end: Offset(0, 0),
         ),
         ScaleEffect(
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 450.ms,
-          begin: Offset(1.0, 0.0),
-          end: Offset(1.0, 1.0),
+          begin: Offset(1, 0),
+          end: Offset(1, 1),
         ),
       ],
     ),
@@ -94,12 +95,12 @@ class _ReviewsUsuariosWidgetState extends State<ReviewsUsuariosWidget>
         automaticallyImplyLeading: false,
         leading: FlutterFlowIconButton(
           borderColor: Colors.transparent,
-          borderRadius: 30.0,
-          buttonSize: 46.0,
+          borderRadius: 30,
+          buttonSize: 46,
           icon: Icon(
             Icons.arrow_back_rounded,
             color: FlutterFlowTheme.of(context).tertiary,
-            size: 24.0,
+            size: 24,
           ),
           onPressed: () async {
             context.pop();
@@ -114,7 +115,7 @@ class _ReviewsUsuariosWidgetState extends State<ReviewsUsuariosWidget>
         ),
         actions: [],
         centerTitle: false,
-        elevation: 0.0,
+        elevation: 0,
       ),
       body: SafeArea(
         top: true,
@@ -130,8 +131,8 @@ class _ReviewsUsuariosWidgetState extends State<ReviewsUsuariosWidget>
             if (!snapshot.hasData) {
               return Center(
                 child: SizedBox(
-                  width: 50.0,
-                  height: 50.0,
+                  width: 50,
+                  height: 50,
                   child: CircularProgressIndicator(
                     valueColor: AlwaysStoppedAnimation<Color>(
                       FlutterFlowTheme.of(context).primary,
@@ -159,15 +160,15 @@ class _ReviewsUsuariosWidgetState extends State<ReviewsUsuariosWidget>
                                 .secondaryBackground,
                             boxShadow: [
                               BoxShadow(
-                                blurRadius: 3.0,
+                                blurRadius: 3,
                                 color: Color(0x39000000),
-                                offset: Offset(0.0, 1.0),
+                                offset: Offset(0, 1),
                               )
                             ],
                           ),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                12.0, 16.0, 12.0, 24.0),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(12, 16, 12, 24),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -178,22 +179,56 @@ class _ReviewsUsuariosWidgetState extends State<ReviewsUsuariosWidget>
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 0.0, 12.0),
-                                      child: Text(
-                                        valueOrDefault<String>(
-                                          widget.nomUsuario,
-                                          'nomUsuario',
+                                          0, 0, 0, 12),
+                                      child: FutureBuilder<List<UsuarisRow>>(
+                                        future: UsuarisTable().querySingleRow(
+                                          queryFn: (q) => q.eq(
+                                            'idUsuari',
+                                            widget.idUsuario,
+                                          ),
                                         ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .displaySmall
-                                            .override(
-                                              fontFamily: 'Lexend Deca',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryText,
-                                              fontSize: 28.0,
-                                              fontWeight: FontWeight.bold,
+                                        builder: (context, snapshot) {
+                                          // Customize what your widget looks like when it's loading.
+                                          if (!snapshot.hasData) {
+                                            return Center(
+                                              child: SizedBox(
+                                                width: 50,
+                                                height: 50,
+                                                child:
+                                                    CircularProgressIndicator(
+                                                  valueColor:
+                                                      AlwaysStoppedAnimation<
+                                                          Color>(
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                  ),
+                                                ),
+                                              ),
+                                            );
+                                          }
+                                          List<UsuarisRow> textUsuarisRowList =
+                                              snapshot.data!;
+                                          final textUsuarisRow =
+                                              textUsuarisRowList.isNotEmpty
+                                                  ? textUsuarisRowList.first
+                                                  : null;
+                                          return Text(
+                                            valueOrDefault<String>(
+                                              textUsuarisRow?.nomPersona,
+                                              'nomPersona',
                                             ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .displaySmall
+                                                .override(
+                                                  fontFamily: 'Lexend Deca',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryText,
+                                                  fontSize: 28,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                          );
+                                        },
                                       ),
                                     ),
                                   ],
@@ -208,7 +243,7 @@ class _ReviewsUsuariosWidgetState extends State<ReviewsUsuariosWidget>
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 12.0),
+                                                  0, 0, 0, 12),
                                           child:
                                               FutureBuilder<List<RessenyesRow>>(
                                             future:
@@ -220,8 +255,8 @@ class _ReviewsUsuariosWidgetState extends State<ReviewsUsuariosWidget>
                                               if (!snapshot.hasData) {
                                                 return Center(
                                                   child: SizedBox(
-                                                    width: 50.0,
-                                                    height: 50.0,
+                                                    width: 50,
+                                                    height: 50,
                                                     child:
                                                         CircularProgressIndicator(
                                                       valueColor:
@@ -255,7 +290,7 @@ class _ReviewsUsuariosWidgetState extends State<ReviewsUsuariosWidget>
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .primaryText,
-                                                      fontSize: 28.0,
+                                                      fontSize: 28,
                                                       fontWeight:
                                                           FontWeight.bold,
                                                     ),
@@ -266,11 +301,11 @@ class _ReviewsUsuariosWidgetState extends State<ReviewsUsuariosWidget>
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  4.0, 0.0, 0.0, 12.0),
+                                                  4, 0, 0, 12),
                                           child: Icon(
                                             Icons.star_rounded,
                                             color: Color(0xFFFFA130),
-                                            size: 24.0,
+                                            size: 24,
                                           ),
                                         ),
                                       ],
@@ -293,8 +328,8 @@ class _ReviewsUsuariosWidgetState extends State<ReviewsUsuariosWidget>
                             if (!snapshot.hasData) {
                               return Center(
                                 child: SizedBox(
-                                  width: 50.0,
-                                  height: 50.0,
+                                  width: 50,
+                                  height: 50,
                                   child: CircularProgressIndicator(
                                     valueColor: AlwaysStoppedAnimation<Color>(
                                       FlutterFlowTheme.of(context).primary,
@@ -316,7 +351,7 @@ class _ReviewsUsuariosWidgetState extends State<ReviewsUsuariosWidget>
                                     listViewRessenyesRowList[listViewIndex];
                                 return Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      16.0, 8.0, 16.0, 4.0),
+                                      16, 8, 16, 4),
                                   child: Container(
                                     width:
                                         MediaQuery.sizeOf(context).width * 0.96,
@@ -325,23 +360,22 @@ class _ReviewsUsuariosWidgetState extends State<ReviewsUsuariosWidget>
                                           .secondaryBackground,
                                       boxShadow: [
                                         BoxShadow(
-                                          blurRadius: 4.0,
+                                          blurRadius: 4,
                                           color: Color(0x33000000),
-                                          offset: Offset(0.0, 2.0),
+                                          offset: Offset(0, 2),
                                         )
                                       ],
-                                      borderRadius: BorderRadius.circular(16.0),
+                                      borderRadius: BorderRadius.circular(16),
                                     ),
                                     child: Padding(
-                                      padding: EdgeInsets.all(2.0),
+                                      padding: EdgeInsets.all(2),
                                       child: SingleChildScrollView(
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      16.0, 12.0, 16.0, 0.0),
+                                                  .fromSTEB(16, 12, 16, 0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 mainAxisAlignment:
@@ -374,8 +408,8 @@ class _ReviewsUsuariosWidgetState extends State<ReviewsUsuariosWidget>
                                                                 .hasData) {
                                                               return Center(
                                                                 child: SizedBox(
-                                                                  width: 50.0,
-                                                                  height: 50.0,
+                                                                  width: 50,
+                                                                  height: 50,
                                                                   child:
                                                                       CircularProgressIndicator(
                                                                     valueColor:
@@ -414,11 +448,8 @@ class _ReviewsUsuariosWidgetState extends State<ReviewsUsuariosWidget>
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      4.0,
-                                                                      0.0,
-                                                                      4.0),
+                                                                  .fromSTEB(0,
+                                                                      4, 0, 4),
                                                           child:
                                                               RatingBarIndicator(
                                                             itemBuilder:
@@ -439,7 +470,7 @@ class _ReviewsUsuariosWidgetState extends State<ReviewsUsuariosWidget>
                                                             unratedColor: Color(
                                                                 0xFF95A1AC),
                                                             itemCount: 5,
-                                                            itemSize: 24.0,
+                                                            itemSize: 24,
                                                           ),
                                                         ),
                                                       ],
@@ -453,11 +484,11 @@ class _ReviewsUsuariosWidgetState extends State<ReviewsUsuariosWidget>
                                                         RoundedRectangleBorder(
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              40.0),
+                                                              40),
                                                     ),
                                                     child: Padding(
                                                       padding:
-                                                          EdgeInsets.all(2.0),
+                                                          EdgeInsets.all(2),
                                                       child: FutureBuilder<
                                                           List<UsuarisRow>>(
                                                         future: UsuarisTable()
@@ -475,8 +506,8 @@ class _ReviewsUsuariosWidgetState extends State<ReviewsUsuariosWidget>
                                                               .hasData) {
                                                             return Center(
                                                               child: SizedBox(
-                                                                width: 50.0,
-                                                                height: 50.0,
+                                                                width: 50,
+                                                                height: 50,
                                                                 child:
                                                                     CircularProgressIndicator(
                                                                   valueColor:
@@ -500,8 +531,8 @@ class _ReviewsUsuariosWidgetState extends State<ReviewsUsuariosWidget>
                                                                       .first
                                                                   : null;
                                                           return Container(
-                                                            width: 50.0,
-                                                            height: 50.0,
+                                                            width: 50,
+                                                            height: 50,
                                                             clipBehavior:
                                                                 Clip.antiAlias,
                                                             decoration:
@@ -524,8 +555,7 @@ class _ReviewsUsuariosWidgetState extends State<ReviewsUsuariosWidget>
                                             ),
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      16.0, 4.0, 16.0, 12.0),
+                                                  .fromSTEB(16, 4, 16, 12),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
@@ -559,43 +589,6 @@ class _ReviewsUsuariosWidgetState extends State<ReviewsUsuariosWidget>
                       ],
                     ),
                   ),
-                  // Padding(
-                  //   padding:
-                  //       EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
-                  //   child: FFButtonWidget(
-                  //     onPressed: () async {
-                  //       context.pushNamed(
-                  //         'AfegirRessenyaUsuari',
-                  //         queryParameters: {
-                  //           'usuariRessenya': serializeParam(
-                  //             columnProductesRow?.fKidUs,
-                  //             ParamType.String,
-                  //           ),
-                  //         }.withoutNulls,
-                  //       );
-                  //     },
-                  //     text: 'Afegir ressenya',
-                  //     options: FFButtonOptions(
-                  //       height: 40.0,
-                  //       padding: EdgeInsetsDirectional.fromSTEB(
-                  //           24.0, 0.0, 24.0, 0.0),
-                  //       iconPadding:
-                  //           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                  //       color: FlutterFlowTheme.of(context).primary,
-                  //       textStyle:
-                  //           FlutterFlowTheme.of(context).titleSmall.override(
-                  //                 fontFamily: 'Poppins',
-                  //                 color: Colors.white,
-                  //               ),
-                  //       elevation: 3.0,
-                  //       borderSide: BorderSide(
-                  //         color: Colors.transparent,
-                  //         width: 1.0,
-                  //       ),
-                  //       borderRadius: BorderRadius.circular(8.0),
-                  //     ),
-                  //   ),
-                  // ),
                 ],
               ),
             );

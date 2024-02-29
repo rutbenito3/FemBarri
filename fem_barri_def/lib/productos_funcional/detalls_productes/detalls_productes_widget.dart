@@ -452,7 +452,7 @@ class _DetallsProductesWidgetState extends State<DetallsProductesWidget> {
                                     ),
                                   );
                                 }
-                                List<UsuarisRow> circleImageUsuarisRowList =
+                                 List<UsuarisRow> circleImageUsuarisRowList =
                                     snapshot.data!;
                                 final circleImageUsuarisRow =
                                     circleImageUsuarisRowList.isNotEmpty
@@ -493,6 +493,10 @@ class _DetallsProductesWidgetState extends State<DetallsProductesWidget> {
                               context.pushNamed(
                                 'ReviewsUsuarios',
                                 queryParameters: {
+                                  'nomProducte': serializeParam(
+                                    '',
+                                    ParamType.String,
+                                  ),
                                   'nomUsuario': serializeParam(
                                     widget.nomUsuari,
                                     ParamType.String,
