@@ -210,19 +210,19 @@ class _MainPrincipalWidgetState extends State<MainPrincipalWidget> {
                     ),
                   ),
                 ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20.0, 16.0, 0.0, 10.0),
-                  child: Text(
-                    'Categories',
-                    style: FlutterFlowTheme.of(context).titleLarge,
-                  ),
-                ),
+                // Padding(
+                //   padding: EdgeInsetsDirectional.fromSTEB(20.0, 16.0, 0.0, 10.0),
+                //   child: Text(
+                //     'Categories',
+                //     style: FlutterFlowTheme.of(context).titleLarge,
+                //   ),
+                // ),
                 Row(
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 0.0, 20.0),
                       child: FutureBuilder<List<CategoriesRow>>(
                         future: CategoriesTable().queryRows(
                           queryFn: (q) => q,
@@ -253,7 +253,7 @@ class _MainPrincipalWidgetState extends State<MainPrincipalWidget> {
                             width: 340.0,
                             height: 40.0,
                             textStyle: FlutterFlowTheme.of(context).bodyMedium,
-                            hintText: 'Please select...',
+                            hintText: 'Select Category...',
                             icon: Icon(
                               Icons.keyboard_arrow_down_rounded,
                               color: FlutterFlowTheme.of(context).secondaryText,
@@ -400,7 +400,7 @@ class _MainPrincipalWidgetState extends State<MainPrincipalWidget> {
                   
                 ),
                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
+                    padding: EdgeInsetsDirectional.fromSTEB(0, 70, 0, 0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [],

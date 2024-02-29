@@ -200,7 +200,7 @@ class _LoginWidgetState extends State<LoginWidget>
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(8),
                           child: Image.asset(
-                            'assets/images/WhatsApp_Image_2023-10-26_at_19.55.09.png',
+                            'assets/images/SPLASH_ICONO_FEMBARRI.png',
                             width: 300,
                             height: 200,
                             fit: BoxFit.cover,

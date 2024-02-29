@@ -204,7 +204,7 @@ class _RegistreWidgetState extends State<RegistreWidget>
                                                 borderRadius:
                                                     BorderRadius.circular(8.0),
                                                 child: Image.asset(
-                                                  'assets/images/WhatsApp_Image_2023-10-26_at_19.55.09.png',
+                                                  'assets/images/iconaFemBarriLila.png',
                                                   width: 300.0,
                                                   height: 200.0,
                                                   fit: BoxFit.cover,
