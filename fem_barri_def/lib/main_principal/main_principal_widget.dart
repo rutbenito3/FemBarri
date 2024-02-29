@@ -145,7 +145,7 @@ class _MainPrincipalWidgetState extends State<MainPrincipalWidget> {
                                   autofillHints: [AutofillHints.email],
                                   obscureText: false,
                                   decoration: InputDecoration(
-                                    labelText: 'Escriu què necessites',
+                                //    labelText: 'Escriu què necessites',
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelLarge,
                                     enabledBorder: OutlineInputBorder(
@@ -250,7 +250,7 @@ class _MainPrincipalWidgetState extends State<MainPrincipalWidget> {
                                 selectedCategory = val;
                               });
                             },
-                            width: 340.0,
+                            width: 320.0,
                             height: 40.0,
                             textStyle: FlutterFlowTheme.of(context).bodyMedium,
                             hintText: 'Select Category...',
