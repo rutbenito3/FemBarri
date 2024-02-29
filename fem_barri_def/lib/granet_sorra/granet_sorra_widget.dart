@@ -199,57 +199,42 @@ class _GranetSorraWidgetState extends State<GranetSorraWidget>
                                                 ),
                                               ),
                                             ),
-                                            Padding(
-                                              padding:
-                                                  EdgeInsetsDirectional.fromSTEB(
-                                                      60, 20, 0, 0),
-                                              child: FFButtonWidget(
-                                                onPressed: () async {
-                                                  await ProductesTable()
-                                                      .delete(
-                                                    matchingRows: (rows) => rows
-                                                        .eq(
-                                                          'FKid_Us',
-                                                          currentUserUid,
-                                                        )
-                                                        .eq(
-                                                          'nomProducte',
-                                                          listViewProductesRow
-                                                              .nomProducte,
-                                                        ),
-                                                  );
-                                                },
-                                                text: '',
-                                                icon: Icon(
-                                                  Icons.delete,
-                                                  size: 35,
-                                                ),
-                                                options: FFButtonOptions(
-                                                  width: 54,
-                                                  height: 50,
-                                                  padding: EdgeInsets.all(0),
-                                                  iconPadding:
+                                            Expanded(
+                                              child: Align(
+                                                alignment:
+                                                    AlignmentDirectional.centerEnd,
+                                                child: Padding(
+                                                  padding:
                                                       EdgeInsetsDirectional
-                                                          .fromSTEB(8, 0, 0, 0),
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primary,
-                                                  textStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .titleSmall
-                                                          .override(
-                                                            fontFamily:
-                                                                'Poppins',
-                                                            color: Colors.white,
-                                                          ),
-                                                  elevation: 3,
-                                                  borderSide: BorderSide(
-                                                    color: Colors.transparent,
-                                                    width: 1,
+                                                          .fromSTEB(0, 20, 16, 0),
+                                                  child: Align(
+                                                    alignment:
+                                                        Alignment.centerRight,
+                                                    child: IconButton(
+                                                      icon: Icon(
+                                                        Icons.delete,
+                                                        size: 35,
+                                                        color: Color.fromARGB(255, 157, 10, 173),
+                                                      ),
+                                                      onPressed: () async {
+                                                        await ProductesTable()
+                                                            .delete(
+                                                          matchingRows: (rows) =>
+                                                              rows
+                                                                  .eq(
+                                                                    'FKid_Us',
+                                                                    currentUserUid,
+                                                                  )
+                                                                  .eq(
+                                                                    'nomProducte',
+                                                                    listViewProductesRow
+                                                                        .nomProducte,
+                                                                  ),
+                                                        );
+                                                        setState(() {});
+                                                      },
+                                                    ),
                                                   ),
-                                                  borderRadius:
-                                                      BorderRadius.circular(8),
                                                 ),
                                               ),
                                             ),
@@ -257,7 +242,9 @@ class _GranetSorraWidgetState extends State<GranetSorraWidget>
                                         ),
                                       ],
                                     ),
+                                    
                                   ),
+                                  
                                 );
                               },
                             );
@@ -265,11 +252,24 @@ class _GranetSorraWidgetState extends State<GranetSorraWidget>
                         ),
                       ),
                     ],
+                    
                   ),
                 ),
               ),
+                                                  Align(
+                    alignment: AlignmentDirectional(0, -1),
+                    child: Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 100, 0, 0), // MODIFICAR EL PADDING PARA BAJAR MAS EL SCROLL 
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [],
+                      ),
+                    ),
+                  ),
             ],
+            
           ),
+          
         ),
       ),
     );
