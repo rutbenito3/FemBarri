@@ -1,3 +1,5 @@
+import 'package:fem_barri_def/xat/chat.dart';
+
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -8,9 +10,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+
 import 'detalls_productes_model.dart';
 export 'detalls_productes_model.dart';
-import 'package:fem_barri_def/xat/chat.dart';
 
 class DetallsProductesWidget extends StatefulWidget {
   const DetallsProductesWidget({
@@ -56,12 +58,12 @@ class _DetallsProductesWidgetState extends State<DetallsProductesWidget> {
         automaticallyImplyLeading: false,
         leading: FlutterFlowIconButton(
           borderColor: Colors.transparent,
-          borderRadius: 30.0,
-          buttonSize: 48.0,
+          borderRadius: 30,
+          buttonSize: 48,
           icon: Icon(
             Icons.arrow_back_rounded,
             color: Colors.white,
-            size: 30.0,
+            size: 30,
           ),
           onPressed: () async {
             context.safePop();
@@ -72,12 +74,12 @@ class _DetallsProductesWidgetState extends State<DetallsProductesWidget> {
           style: FlutterFlowTheme.of(context).bodyMedium.override(
                 fontFamily: 'Poppins',
                 color: Colors.white,
-                fontSize: 20.0,
+                fontSize: 20,
               ),
         ),
         actions: [],
         centerTitle: false,
-        elevation: 0.0,
+        elevation: 0,
       ),
       body: SafeArea(
         top: true,
@@ -93,8 +95,8 @@ class _DetallsProductesWidgetState extends State<DetallsProductesWidget> {
             if (!snapshot.hasData) {
               return Center(
                 child: SizedBox(
-                  width: 50.0,
-                  height: 50.0,
+                  width: 50,
+                  height: 50,
                   child: CircularProgressIndicator(
                     valueColor: AlwaysStoppedAnimation<Color>(
                       FlutterFlowTheme.of(context).primary,
@@ -112,10 +114,9 @@ class _DetallsProductesWidgetState extends State<DetallsProductesWidget> {
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Align(
-                    alignment: AlignmentDirectional(0.0, -1.0),
+                    alignment: AlignmentDirectional(0, -1),
                     child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 20.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 20),
                       child: Text(
                         valueOrDefault<String>(
                           widget.nomProducte,
@@ -138,8 +139,8 @@ class _DetallsProductesWidgetState extends State<DetallsProductesWidget> {
                       if (!snapshot.hasData) {
                         return Center(
                           child: SizedBox(
-                            width: 50.0,
-                            height: 50.0,
+                            width: 50,
+                            height: 50,
                             child: CircularProgressIndicator(
                               valueColor: AlwaysStoppedAnimation<Color>(
                                 FlutterFlowTheme.of(context).primary,
@@ -150,40 +151,38 @@ class _DetallsProductesWidgetState extends State<DetallsProductesWidget> {
                       }
                       List<ProductesRow> imageProductesRowList = snapshot.data!;
                       return ClipRRect(
-                        borderRadius: BorderRadius.circular(8.0),
+                        borderRadius: BorderRadius.circular(8),
                         child: Image.network(
                           valueOrDefault<String>(
                             columnProductesRow?.fotoProducte,
                             'https://www.tea-tron.com/antorodriguez/blog/wp-content/uploads/2016/04/image-not-found-4a963b95bf081c3ea02923dceaeb3f8085e1a654fc54840aac61a57a60903fef.png',
                           ),
-                          width: 300.0,
-                          height: 200.0,
+                          width: 300,
+                          height: 200,
                           fit: BoxFit.contain,
                         ),
                       );
                     },
                   ),
                   Align(
-                    alignment: AlignmentDirectional(-1.0, 0.0),
+                    alignment: AlignmentDirectional(-1, 0),
                     child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(20.0, 25.0, 0.0, 0.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(20, 25, 0, 0),
                       child: Text(
                         'Descripció  del producte:',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Poppins',
-                              fontSize: 16.0,
+                              fontSize: 16,
                               fontWeight: FontWeight.w600,
                             ),
                       ),
                     ),
                   ),
                   Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                     child: Container(
-                      width: 337.0,
-                      height: 154.0,
+                      width: 337,
+                      height: 154,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                       ),
@@ -200,8 +199,8 @@ class _DetallsProductesWidgetState extends State<DetallsProductesWidget> {
                           if (!snapshot.hasData) {
                             return Center(
                               child: SizedBox(
-                                width: 50.0,
-                                height: 50.0,
+                                width: 50,
+                                height: 50,
                                 child: CircularProgressIndicator(
                                   valueColor: AlwaysStoppedAnimation<Color>(
                                     FlutterFlowTheme.of(context).primary,
@@ -224,8 +223,7 @@ class _DetallsProductesWidgetState extends State<DetallsProductesWidget> {
                     ),
                   ),
                   Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                     child: FutureBuilder<List<UsuarisRow>>(
                       future: UsuarisTable().querySingleRow(
                         queryFn: (q) => q.eq(
@@ -238,8 +236,8 @@ class _DetallsProductesWidgetState extends State<DetallsProductesWidget> {
                         if (!snapshot.hasData) {
                           return Center(
                             child: SizedBox(
-                              width: 50.0,
-                              height: 50.0,
+                              width: 50,
+                              height: 50,
                               child: CircularProgressIndicator(
                                 valueColor: AlwaysStoppedAnimation<Color>(
                                   FlutterFlowTheme.of(context).primary,
@@ -258,49 +256,94 @@ class _DetallsProductesWidgetState extends State<DetallsProductesWidget> {
                           },
                           text: buttonUsuarisRow!.email!,
                           options: FFButtonOptions(
-                            height: 40.0,
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                24.0, 0.0, 24.0, 0.0),
-                            iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
-                            color: FlutterFlowTheme.of(context).primary,
+                            height: 40,
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                            iconPadding:
+                                EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                            color:
+                                FlutterFlowTheme.of(context).primaryBackground,
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
                                   fontFamily: 'Poppins',
-                                  color: Colors.white,
-                                  fontSize: 12.0,
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
                                 ),
-                            elevation: 3.0,
+                            elevation: 0,
                             borderSide: BorderSide(
                               color: Colors.transparent,
-                              width: 1.0,
+                              width: 1,
                             ),
-                            borderRadius: BorderRadius.circular(8.0),
+                            borderRadius: BorderRadius.circular(8),
                           ),
                         );
                       },
                     ),
                   ),
-                   Padding(
+                            Padding(
+
+	
+
                     padding: EdgeInsets.symmetric(vertical: 20.0),
+
+	
+
                     child: ElevatedButton.icon(
+
+	
+
                       onPressed: () {
+
+	
+
                         Navigator.of(context).push(
+
+	
+
                           MaterialPageRoute(
+
+	
+
                             builder: (context) => ChatPage(
+
+	
+
                               otherUserId: columnProductesRow!.fKidUs!,
+
+	
+
                             ),
+
+	
+
                           ),
+
+	
+
                         );
+
+	
+
                       },
+
+	
+
                       icon: Icon(Icons.message),
+
+	
+
                       label: Text('Enviar missatge'),
+
+	
+
                     ),
-                   ),
+
+	
+
+                   ), 
                   Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(10.0, 20.0, 10.0, 20.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(10, 20, 10, 20),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -308,8 +351,8 @@ class _DetallsProductesWidgetState extends State<DetallsProductesWidget> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  40.0, 0.0, 0.0, 0.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(40, 0, 0, 0),
                               child: FutureBuilder<List<UsuarisRow>>(
                                 future: UsuarisTable().querySingleRow(
                                   queryFn: (q) => q.eq(
@@ -322,8 +365,8 @@ class _DetallsProductesWidgetState extends State<DetallsProductesWidget> {
                                   if (!snapshot.hasData) {
                                     return Center(
                                       child: SizedBox(
-                                        width: 50.0,
-                                        height: 50.0,
+                                        width: 50,
+                                        height: 50,
                                         child: CircularProgressIndicator(
                                           valueColor:
                                               AlwaysStoppedAnimation<Color>(
@@ -344,46 +387,25 @@ class _DetallsProductesWidgetState extends State<DetallsProductesWidget> {
                                       textUsuarisRowList.isNotEmpty
                                           ? textUsuarisRowList.first
                                           : null;
-                                  return InkWell(
-                                    splashColor: Colors.transparent,
-                                    focusColor: Colors.transparent,
-                                    hoverColor: Colors.transparent,
-                                    highlightColor: Colors.transparent,
-                                    onTap: () async {
-                                      context.pushNamed(
-                                        'ReviewsUsuarios',
-                                        queryParameters: {
-                                          'nomUsuario': serializeParam(
-                                            textUsuarisRow?.nomPersona,
-                                            ParamType.String,
-                                          ),
-                                          'idUsuario': serializeParam(
-                                            columnProductesRow?.fKidUs,
-                                            ParamType.String,
-                                          ),
-                                        }.withoutNulls,
-                                      );
-                                    },
-                                    child: Text(
-                                      valueOrDefault<String>(
-                                        textUsuarisRow?.nomPersona,
-                                        'Enric Garcia',
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Poppins',
-                                            fontSize: 20.0,
-                                            fontWeight: FontWeight.bold,
-                                          ),
+                                  return Text(
+                                    valueOrDefault<String>(
+                                      textUsuarisRow?.nomPersona,
+                                      'Enric Garcia',
                                     ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold,
+                                        ),
                                   );
                                 },
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  40.0, 0.0, 0.0, 0.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(40, 0, 0, 0),
                               child: RatingBar.builder(
                                 onRatingUpdate: (newValue) => setState(
                                     () => _model.ratingBarValue = newValue),
@@ -396,17 +418,17 @@ class _DetallsProductesWidgetState extends State<DetallsProductesWidget> {
                                     columnProductesRow!.raiting!.toDouble(),
                                 unratedColor: Color(0xFF6B1168),
                                 itemCount: 5,
-                                itemSize: 22.0,
+                                itemSize: 22,
                                 glowColor: FlutterFlowTheme.of(context).warning,
                               ),
                             ),
                           ],
                         ),
                         Align(
-                          alignment: AlignmentDirectional(1.0, 0.0),
+                          alignment: AlignmentDirectional(1, 0),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                80.0, 0.0, 0.0, 0.0),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(80, 0, 0, 0),
                             child: FutureBuilder<List<UsuarisRow>>(
                               future: UsuarisTable().querySingleRow(
                                 queryFn: (q) => q.eq(
@@ -419,8 +441,8 @@ class _DetallsProductesWidgetState extends State<DetallsProductesWidget> {
                                 if (!snapshot.hasData) {
                                   return Center(
                                     child: SizedBox(
-                                      width: 50.0,
-                                      height: 50.0,
+                                      width: 50,
+                                      height: 50,
                                       child: CircularProgressIndicator(
                                         valueColor:
                                             AlwaysStoppedAnimation<Color>(
@@ -430,45 +452,121 @@ class _DetallsProductesWidgetState extends State<DetallsProductesWidget> {
                                     ),
                                   );
                                 }
-                                List<UsuarisRow> circleImageUsuarisRowList =
+                                 List<UsuarisRow> circleImageUsuarisRowList =
                                     snapshot.data!;
                                 final circleImageUsuarisRow =
                                     circleImageUsuarisRowList.isNotEmpty
                                         ? circleImageUsuarisRowList.first
                                         : null;
-                                return InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    context.pushNamed(
-                                      'AfegirRessenya',
-                                      queryParameters: {
-                                        'usuariRessenya': serializeParam(
-                                          columnProductesRow?.fKidUs,
-                                          ParamType.String,
-                                        ),
-                                      }.withoutNulls,
-                                    );
-                                  },
-                                  child: Container(
-                                    width: 60.0,
-                                    height: 60.0,
-                                    clipBehavior: Clip.antiAlias,
-                                    decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
+                                return Container(
+                                  width: 60,
+                                  height: 60,
+                                  clipBehavior: Clip.antiAlias,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: Image.network(
+                                    valueOrDefault<String>(
+                                      circleImageUsuarisRow?.fotoUsuari,
+                                      'https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png',
                                     ),
-                                    child: Image.network(
-                                      valueOrDefault<String>(
-                                        circleImageUsuarisRow?.fotoUsuari,
-                                        'https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png',
-                                      ),
-                                      fit: BoxFit.cover,
-                                    ),
+                                    fit: BoxFit.cover,
                                   ),
                                 );
                               },
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Align(
+                    alignment: AlignmentDirectional(0, 0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
+                          child: FFButtonWidget(
+                            onPressed: () async {
+                              context.pushNamed(
+                                'ReviewsUsuarios',
+                                queryParameters: {
+                                  'nomProducte': serializeParam(
+                                    '',
+                                    ParamType.String,
+                                  ),
+                                  'nomUsuario': serializeParam(
+                                    widget.nomUsuari,
+                                    ParamType.String,
+                                  ),
+                                  'idUsuario': serializeParam(
+                                    columnProductesRow?.fKidUs,
+                                    ParamType.String,
+                                  ),
+                                }.withoutNulls,
+                              );
+                            },
+                            text: 'Veure opinions',
+                            options: FFButtonOptions(
+                              height: 40,
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                              iconPadding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                              color: FlutterFlowTheme.of(context).primary,
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .titleSmall
+                                  .override(
+                                    fontFamily: 'Poppins',
+                                    color: Colors.white,
+                                    fontSize: 12,
+                                  ),
+                              elevation: 3,
+                              borderSide: BorderSide(
+                                color: Colors.transparent,
+                                width: 1,
+                              ),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                          child: FFButtonWidget(
+                            onPressed: () async {
+                              context.pushNamed(
+                                'AfegirRessenya',
+                                queryParameters: {
+                                  'usuariRessenya': serializeParam(
+                                    columnProductesRow?.fKidUs,
+                                    ParamType.String,
+                                  ),
+                                }.withoutNulls,
+                              );
+                            },
+                            text: 'Afegir ressenya',
+                            options: FFButtonOptions(
+                              height: 40,
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                              iconPadding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                              color: FlutterFlowTheme.of(context).primary,
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .titleSmall
+                                  .override(
+                                    fontFamily: 'Poppins',
+                                    color: Colors.white,
+                                    fontSize: 12,
+                                  ),
+                              elevation: 3,
+                              borderSide: BorderSide(
+                                color: Colors.transparent,
+                                width: 1,
+                              ),
+                              borderRadius: BorderRadius.circular(8),
                             ),
                           ),
                         ),
